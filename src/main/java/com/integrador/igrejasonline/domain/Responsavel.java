@@ -10,9 +10,8 @@ public class Responsavel  implements Serializable {
 	private String email;
 	private String telefone;
 	
-	public Responsavel() {
-		
-	}
+	public Responsavel() { }
+	
 	public Responsavel(Integer id,String cpf, String email, String telefone) {
 		super();
 		this.id = id;
@@ -21,30 +20,14 @@ public class Responsavel  implements Serializable {
 		this.telefone = telefone;
 	}
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+	public Integer getId() {return id;}
+	public void setId(Integer id) {this.id = id;}
+	public String getCpf() {return cpf;}
+	public void setCpf(String cpf) {this.cpf = cpf;}
+	public String getEmail() {return email;}
+	public void setEmail(String email) {this.email = email;}
+	public String getTelefone() {return telefone;}
+	public void setTelefone(String telefone) {this.telefone = telefone;}
 	
 	@Override
 	public int hashCode() {
