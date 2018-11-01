@@ -1,0 +1,11 @@
+Classe evento
+Alterações no id
+-público pode ser tipo enumerado
+tratar dataInicio como tipo date
+tratar dataTermino como tipo date
+
+Criar tipo endereco
+incluir endereco em todas as classes
+
+Padronizar as buscas das classes por id
+
