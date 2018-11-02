@@ -9,3 +9,14 @@ incluir endereco em todas as classes
 
 Padronizar as buscas das classes por id
 
+
+Entrega 2 - Endereço
+Criar Classe Estado
+Criar Classe Cidade
+Criar persitência no banco de dados para as classes Estado e Cidade
+Mapear relacionamento entre entidades Estado e Cidade
+Tratar recursividade entre Estado e Cidade
+Declarar geração de chave primária automaticamente pelo	banco
+
+
+
