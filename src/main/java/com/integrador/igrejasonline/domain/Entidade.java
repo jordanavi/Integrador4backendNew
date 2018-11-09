@@ -1,5 +1,8 @@
 package com.integrador.igrejasonline.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Entidade{
 	
 	//tratar endereco
@@ -7,6 +10,8 @@ public class Entidade{
 	public String nome;
 	public String telefone;
 		
+	private List<Endereco> enderecos = new ArrayList<>();
+	
 	public Entidade() {	}
 	
 	public Entidade(Integer id, String nome, String telefone) {

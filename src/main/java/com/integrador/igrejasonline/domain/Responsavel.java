@@ -1,13 +1,18 @@
 package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Responsavel  implements Serializable {
 	private static final long serialVersionUID = 1L;
-	//tratar endereco
+
 	private Integer id;
 	private String cpf;
 	private String email;
+
+	private List<Endereco> enderecos = new ArrayList<>();
+	
 	private String telefone;
 	
 	public Responsavel() { }

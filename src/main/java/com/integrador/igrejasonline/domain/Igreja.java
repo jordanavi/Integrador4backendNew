@@ -1,9 +1,14 @@
 package com.integrador.igrejasonline.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Igreja {
 	private String cnpj;
 	private String telefone;
 	private String nome;
+	
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	public Igreja() { }
 	

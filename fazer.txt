@@ -1,6 +1,6 @@
 Classe evento
-Alterações no id
--público pode ser tipo enumerado
+Alteracos no id
+-publico pode ser tipo enumerado
 tratar dataInicio como tipo date
 tratar dataTermino como tipo date
 
@@ -10,13 +10,16 @@ incluir endereco em todas as classes
 Padronizar as buscas das classes por id
 
 
-Entrega 2 - Endereço
+Entrega 2
+
 Criar Classe Estado
 Criar Classe Cidade
-Criar persitência no banco de dados para as classes Estado e Cidade
+Criar Classe Endereco
+Criar persitencia no banco de dados para as classes Estado e Cidade
 Mapear relacionamento entre entidades Estado e Cidade
 Tratar recursividade entre Estado e Cidade
-Declarar geração de chave primária automaticamente pelo	banco
+Gerar chave primaria automaticamente pelo banco
+Criar associacoes entre a classe Endereco e as classes Responsavel, Igreja e Entidade 
 
 
 
