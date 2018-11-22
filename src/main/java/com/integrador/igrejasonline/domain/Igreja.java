@@ -8,15 +8,15 @@ public class Igreja {
 	private String cnpj;
 	private String telefone;
 	private String nome;
+	private Endereco endereco;
 	
-	private List<Endereco> enderecos = new ArrayList<>();
-	
-	public Igreja(Integer id, String cnpj, String telefone, String nome) {
+	public Igreja(Integer id, String cnpj, String telefone, String nome, Endereco endereco) {
 		super();
 		this.id = id;
 		this.cnpj = cnpj;
 		this.telefone = telefone;
 		this.nome = nome;
+		this.setEndereco(endereco);
 	}
 	
 	public Igreja() { }
@@ -29,6 +29,8 @@ public class Igreja {
 	public void setTelefone(String telefone) {this.telefone = telefone;}
 	public String getNome() {return nome;}
 	public void setNome(String nome) {this.nome = nome;}	
-	
+	public Endereco getEndereco() {return endereco;}
+	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+
 	
 }

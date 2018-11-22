@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
-	//tratar endereco
 	//tratar data
 	
 	private Integer id;
@@ -16,8 +15,9 @@ public class Evento implements Serializable {
 	private String descricao;
 	private String publico;
 	private boolean repete;
+	private Endereco endereco;
 	
-	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio, String horaTermino, String descricao, String publico, boolean repete) {
+	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio, String horaTermino, String descricao, String publico, boolean repete, Endereco endereco) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -28,6 +28,7 @@ public class Evento implements Serializable {
 		this.descricao = descricao;
 		this.publico = publico;
 		this.repete = repete;
+		this.setEndereco(endereco);
 	}
 
 	public Evento() { }
@@ -50,7 +51,10 @@ public class Evento implements Serializable {
 	public void setPublico(String publico) {this.publico = publico;}
 	public boolean isRepete() {return repete;}
 	public void setRepete(boolean repete) {this.repete = repete;}
-	
+	public Endereco getEndereco() {return endereco;}
+	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
