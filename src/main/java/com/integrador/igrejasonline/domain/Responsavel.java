@@ -15,8 +15,6 @@ public class Responsavel  implements Serializable {
 	
 	private String telefone;
 	
-	public Responsavel() { }
-	
 	public Responsavel(Integer id,String cpf, String email, String telefone) {
 		super();
 		this.id = id;
@@ -24,6 +22,8 @@ public class Responsavel  implements Serializable {
 		this.email = email;
 		this.telefone = telefone;
 	}
+	
+	public Responsavel() { }
 	
 	public Integer getId() {return id;}
 	public void setId(Integer id) {this.id = id;}

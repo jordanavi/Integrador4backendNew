@@ -11,8 +11,6 @@ public class Igreja {
 	
 	private List<Endereco> enderecos = new ArrayList<>();
 	
-	public Igreja() { }
-	
 	public Igreja(Integer id, String cnpj, String telefone, String nome) {
 		super();
 		this.id = id;
@@ -20,6 +18,8 @@ public class Igreja {
 		this.telefone = telefone;
 		this.nome = nome;
 	}
+	
+	public Igreja() { }
 	
 	public Integer getId() {return id;}
 	public void setId(Integer id) {this.id = id;}

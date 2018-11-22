@@ -17,8 +17,6 @@ public class Evento implements Serializable {
 	private String publico;
 	private boolean repete;
 	
-	public Evento() { }
-	
 	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio, String horaTermino, String descricao, String publico, boolean repete) {
 		super();
 		this.id = id;
@@ -31,6 +29,8 @@ public class Evento implements Serializable {
 		this.publico = publico;
 		this.repete = repete;
 	}
+
+	public Evento() { }
 
 	public Integer getId() {return id;}
 	public void setId(Integer id) {this.id = id;}

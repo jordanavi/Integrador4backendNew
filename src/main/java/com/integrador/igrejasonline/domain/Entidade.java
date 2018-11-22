@@ -13,7 +13,7 @@ public class Entidade{
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	public Entidade() {	}
-	
+
 	public Entidade(Integer id, String nome, String telefone) {
 		super();
 		this.id = id;
