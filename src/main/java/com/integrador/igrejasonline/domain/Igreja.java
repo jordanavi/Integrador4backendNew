@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Igreja {
+	private Integer id;
 	private String cnpj;
 	private String telefone;
 	private String nome;
@@ -12,13 +13,16 @@ public class Igreja {
 	
 	public Igreja() { }
 	
-	public Igreja(String cnpj, String telefone, String nome) {
+	public Igreja(Integer id, String cnpj, String telefone, String nome) {
 		super();
+		this.id = id;
 		this.cnpj = cnpj;
 		this.telefone = telefone;
 		this.nome = nome;
 	}
 	
+	public Integer getId() {return id;}
+	public void setId(Integer id) {this.id = id;}
 	public String getCnpj() {return cnpj;}
 	public void setCnpj(String cnpj) {this.cnpj = cnpj;}
 	public String getTelefone() {return telefone;}
