@@ -11,19 +11,25 @@ public class Evento implements Serializable {
 	private String titulo;
 	private String dataInicio;
 	private String dataTermino;
+	private String horaInicio;
+	private String horaTermino;
 	private String descricao;
 	private String publico;
+	private boolean repete;
 	
 	public Evento() { }
 	
-	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String descricao, String publico) {
+	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio, String horaTermino, String descricao, String publico, boolean repete) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.dataInicio = dataInicio;
 		this.dataTermino = dataTermino;
+		this.horaInicio = dataInicio;
+		this.horaTermino = dataTermino;
 		this.descricao = descricao;
 		this.publico = publico;
+		this.repete = repete;
 	}
 
 	public Integer getId() {return id;}
@@ -34,10 +40,16 @@ public class Evento implements Serializable {
 	public void setDataInicio(String dataInicio) {this.dataInicio = dataInicio;}
 	public String getDataTermino() {return dataTermino;}
 	public void setDataTermino(String dataTermino) {this.dataTermino = dataTermino;}
+	public String getHoraInicio() {return horaInicio;}
+	public void setHoraInicio(String horaInicio) {this.horaInicio = horaInicio;}
+	public String getHoraTermino() {return horaTermino;}
+	public void setHoraTermino(String horaTermino) {this.horaTermino = horaTermino;}
 	public String getDescricao() {return descricao;}
 	public void setDescricao(String descricao) {this.descricao = descricao;}
 	public String getPublico() {return publico;}
 	public void setPublico(String publico) {this.publico = publico;}
+	public boolean isRepete() {return repete;}
+	public void setRepete(boolean repete) {this.repete = repete;}
 	
 	@Override
 	public int hashCode() {
