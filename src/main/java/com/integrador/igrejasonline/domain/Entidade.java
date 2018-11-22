@@ -1,24 +1,21 @@
 package com.integrador.igrejasonline.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Entidade{
 	
 	//tratar endereco
-	public Integer id;
-	public String nome;
-	public String telefone;
+	private Integer id;
+	private String nome;
+	private String telefone;
+	private Endereco endereco;
 		
-	private List<Endereco> enderecos = new ArrayList<>();
-	
 	public Entidade() {	}
-	
-	public Entidade(Integer id, String nome, String telefone) {
+
+	public Entidade(Integer id, String nome, String telefone, Endereco endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.telefone = telefone;
+		this.setEndereco(endereco);
 	}
 	
 	public Integer getId() {return id;}
@@ -27,7 +24,9 @@ public class Entidade{
 	public void setNome(String nome) {this.nome = nome;}
 	public String getTelefone() {return telefone;}
 	public void setTelefone(String telefone) {this.telefone = telefone;}
-	
+	public Endereco getEndereco() {return endereco;}
+	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -22,8 +22,7 @@ public class Cidade implements Serializable {
 	@JoinColumn(name="estado_id")
 	private Estado estado;
 	
-	public Cidade() {
-	}
+	public Cidade() { }
 	
 	public Cidade(Integer id, Integer nome, Estado estado) {
 		super();

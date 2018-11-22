@@ -1,8 +1,6 @@
 package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Responsavel  implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -10,20 +8,19 @@ public class Responsavel  implements Serializable {
 	private Integer id;
 	private String cpf;
 	private String email;
-
-	private List<Endereco> enderecos = new ArrayList<>();
-	
+	private Endereco endereco;
 	private String telefone;
 	
-	public Responsavel() { }
-	
-	public Responsavel(Integer id,String cpf, String email, String telefone) {
+	public Responsavel(Integer id,String cpf, String email, String telefone, Endereco endereco) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
 		this.email = email;
 		this.telefone = telefone;
+		this.setEndereco(endereco);
 	}
+	
+	public Responsavel() { }
 	
 	public Integer getId() {return id;}
 	public void setId(Integer id) {this.id = id;}
@@ -33,6 +30,9 @@ public class Responsavel  implements Serializable {
 	public void setEmail(String email) {this.email = email;}
 	public String getTelefone() {return telefone;}
 	public void setTelefone(String telefone) {this.telefone = telefone;}
+	public Endereco getEndereco() {return endereco;}
+	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+
 	
 	@Override
 	public int hashCode() {
@@ -58,4 +58,5 @@ public class Responsavel  implements Serializable {
 			return false;
 		return true;
 	}
+
 }
