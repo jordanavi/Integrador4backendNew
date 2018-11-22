@@ -81,4 +81,5 @@ public class EntidadeResource {
 		
 		return lista;
 	}
+
 }

@@ -1,8 +1,5 @@
 package com.integrador.igrejasonline.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Igreja {
 	private Integer id;
 	private String cnpj;
@@ -31,6 +28,5 @@ public class Igreja {
 	public void setNome(String nome) {this.nome = nome;}	
 	public Endereco getEndereco() {return endereco;}
 	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
-
 	
 }
