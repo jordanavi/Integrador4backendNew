@@ -8,16 +8,18 @@ public class Responsavel  implements Serializable {
 	private Integer id;
 	private String nome;
 	private String usuario;
+	private String senha;
 	private String cpf;
 	private String email;
 	private Endereco endereco;
 	private String telefone;
 	
-	public Responsavel(Integer id,String nome, String usuario, String cpf, String email, String telefone, Endereco endereco) {
+	public Responsavel(Integer id,String nome, String usuario, String senha, String cpf, String email, String telefone, Endereco endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
+		this.senha = senha;
 		this.cpf = cpf;
 		this.email = email;
 		this.telefone = telefone;
@@ -32,6 +34,8 @@ public class Responsavel  implements Serializable {
 	public void setNome(String nome) {this.nome = nome;}
 	public String getUsuario() {return usuario;}
 	public void setUsuario(String usuario) {this.usuario = usuario;}
+	public String getSenha() {return senha;}
+	public void setSenha(String senha) {this.senha = senha;}
 	public String getCpf() {return cpf;}
 	public void setCpf(String cpf) {this.cpf = cpf;}
 	public String getEmail() {return email;}
