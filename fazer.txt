@@ -22,4 +22,12 @@ Gerar chave primaria automaticamente pelo banco
 Criar associacoes entre a classe Endereco e as classes Responsavel, Igreja e Entidade 
 
 
+Entrega 3
+Relacionar igreja e endereco
+Relacionar igreja e responsave
+Relacionar igreja e entidade
+Relacionar igreja e evento
+
+
+
 

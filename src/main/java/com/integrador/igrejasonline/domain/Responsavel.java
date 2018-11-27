@@ -2,6 +2,9 @@ package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 public class Responsavel  implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -14,7 +17,11 @@ public class Responsavel  implements Serializable {
 	private Endereco endereco;
 	private String telefone;
 	
-	public Responsavel(Integer id,String nome, String usuario, String senha, String cpf, String email, String telefone, Endereco endereco) {
+	//relacionamento muitos para um entre responsavel e igreja
+	@ManyToOne
+	private Igreja igreja;
+	
+	public Responsavel(Integer id,String nome, String usuario, String senha, String cpf, String email, String telefone, Endereco endereco, Igreja igreja) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -24,7 +31,7 @@ public class Responsavel  implements Serializable {
 		this.email = email;
 		this.telefone = telefone;
 		this.setEndereco(endereco);
-	}
+		this.setIgreja(igreja);}
 	
 	public Responsavel() { }
 	
@@ -44,8 +51,9 @@ public class Responsavel  implements Serializable {
 	public void setTelefone(String telefone) {this.telefone = telefone;}
 	public Endereco getEndereco() {return endereco;}
 	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+	public Igreja getIgreja() {return igreja;}
+	public void setIgreja(Igreja igreja) {this.igreja = igreja;}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

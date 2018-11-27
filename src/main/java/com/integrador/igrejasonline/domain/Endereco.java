@@ -2,7 +2,9 @@ package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
 
-public class Endereco  implements Serializable {
+import javax.persistence.OneToOne;
+
+public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
@@ -13,9 +15,12 @@ public class Endereco  implements Serializable {
 	private String cep;
 	private Cidade cidade;
 	
+	@OneToOne
+	private Igreja igreja;
+	
 	public Endereco() {	}
 	
-	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep, Cidade cidade) {
+	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep, Cidade cidade, Igreja igreja) {
 		super();
 		this.id = id;
 		this.logradouro = logradouro;
@@ -24,6 +29,7 @@ public class Endereco  implements Serializable {
 		this.bairro = bairro;
 		this.cep = cep;
 		this.setCidade(cidade);
+		this.setIgreja(igreja);
 	}
 
 	public Integer getId() {return id;}
@@ -40,7 +46,9 @@ public class Endereco  implements Serializable {
 	public void setCep(String cep) {this.cep = cep;}
 	public Cidade getCidade() {return cidade;}
 	public void setCidade(Cidade cidade) {this.cidade = cidade;}
-	
+	public Igreja getIgreja() {return igreja;}
+	public void setIgreja(Igreja igreja) {this.igreja = igreja;}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
