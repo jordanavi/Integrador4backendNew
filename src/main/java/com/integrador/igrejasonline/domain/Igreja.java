@@ -1,10 +1,17 @@
 package com.integrador.igrejasonline.domain;
 
-public class Igreja {
+import java.io.Serializable;
+
+import javax.persistence.OneToOne;
+
+public class Igreja implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String cnpj;
 	private String telefone;
 	private String nome;
+	
+	@OneToOne
 	private Endereco endereco;
 	
 	public Igreja(Integer id, String cnpj, String telefone, String nome, Endereco endereco) {
