@@ -2,7 +2,6 @@ package com.integrador.igrejasonline.domain;
 
 public class Entidade{
 	
-	//tratar endereco
 	private Integer id;
 	private String nome;
 	private String telefone;
@@ -51,5 +50,4 @@ public class Entidade{
 			return false;
 		return true;
 	}
-
 }
