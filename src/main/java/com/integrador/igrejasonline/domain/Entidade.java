@@ -1,8 +1,15 @@
 package com.integrador.igrejasonline.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Entidade{
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nome;
 	private String telefone;
 	private Endereco endereco;

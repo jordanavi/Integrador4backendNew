@@ -2,11 +2,17 @@ package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
-	//tratar data
-	
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //definicao de chave primaria
 	private Integer id;
+	
 	private String titulo;
 	private String dataInicio;
 	private String dataTermino;
