@@ -2,10 +2,14 @@ package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,6 +25,9 @@ public class Evento implements Serializable {
 	private String descricao;
 	private String publico;
 	private boolean repete;
+	
+	@ManyToOne
+	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 	
 	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio, String horaTermino, String descricao, String publico, boolean repete, Endereco endereco) {

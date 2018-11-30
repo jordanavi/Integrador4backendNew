@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
+@Entity
 public class Igreja implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +28,8 @@ public class Igreja implements Serializable {
 	private String nome;
 	
 	//relacionamento um para um entre igreja e endereco
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 	
 	//relacionamento um para muitos entre igreja e responsavel - deleção em cascata (se apagar igreja, apaga responsavel)

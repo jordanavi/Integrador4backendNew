@@ -2,25 +2,33 @@ package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.OneToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String logradouro;
 	private String numero;
 	private String complemento;
 	private String bairro;
 	private String cep;
-	private Cidade cidade;
 	
-	@OneToOne
-	private Igreja igreja;
+	@ManyToOne
+	@JoinColumn(name="cidade_id")
+	private Cidade cidade;
 	
 	public Endereco() {	}
 	
-	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep, Cidade cidade, Igreja igreja) {
+	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep, Cidade cidade) {
 		super();
 		this.id = id;
 		this.logradouro = logradouro;
@@ -29,7 +37,6 @@ public class Endereco implements Serializable {
 		this.bairro = bairro;
 		this.cep = cep;
 		this.setCidade(cidade);
-		this.setIgreja(igreja);
 	}
 
 	public Integer getId() {return id;}
@@ -46,8 +53,6 @@ public class Endereco implements Serializable {
 	public void setCep(String cep) {this.cep = cep;}
 	public Cidade getCidade() {return cidade;}
 	public void setCidade(Cidade cidade) {this.cidade = cidade;}
-	public Igreja getIgreja() {return igreja;}
-	public void setIgreja(Igreja igreja) {this.igreja = igreja;}
 
 	@Override
 	public int hashCode() {

@@ -2,11 +2,14 @@ package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Responsavel  implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +27,7 @@ public class Responsavel  implements Serializable {
 	
 	//relacionamento muitos para um entre responsavel e igreja
 	@ManyToOne
+	@JoinColumn(name="igreja_id")
 	private Igreja igreja;
 	
 	public Responsavel(Integer id,String nome, String usuario, String senha, String cpf, String email, String telefone, Endereco endereco, Igreja igreja) {
