@@ -1,10 +1,7 @@
 package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Igreja implements Serializable {
@@ -31,10 +27,6 @@ public class Igreja implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
-	
-	//relacionamento um para muitos entre igreja e responsavel - deleção em cascata (se apagar igreja, apaga responsavel)
-	@OneToMany (mappedBy="igreja", cascade=CascadeType.ALL)		 
-	private List<Responsavel> responsavel = new ArrayList<>();
 	
 	public Igreja(Integer id, String cnpj, String telefone, String nome, Endereco endereco) {
 		super();
@@ -59,8 +51,6 @@ public class Igreja implements Serializable {
 	public void setNome(String nome) {this.nome = nome;}	
 	public Endereco getEndereco() {return endereco;}
 	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
-	public List<Responsavel> getResponsavel() {return responsavel;}
-	public void setResponsavel(List<Responsavel> responsavel) {this.responsavel = responsavel;}
 
 	@Override
 	public int hashCode() {

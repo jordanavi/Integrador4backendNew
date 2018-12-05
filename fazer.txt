@@ -1,3 +1,16 @@
+04/12/18 Reuniao para definição das atividades para encerramento.
+Reestruturar o fonte (remoção de classes não críticas para o projeto visando o término da versão beta)
+	- Remover Responsável	
+Fazer o crud de igreja
+Fazer o crud de entidade
+Fazer o crud de evento
+
+
+
+
+
+____________________________________________________________________________________
+
 Classe evento
 Alteracos no id
 -publico pode ser tipo enumerado
