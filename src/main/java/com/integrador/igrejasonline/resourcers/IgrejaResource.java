@@ -64,5 +64,17 @@ public class IgrejaResource {
 		igrejaService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	/**
+	 * @param objDto
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@Valid @RequestBody Igreja obj, @PathVariable Integer id) {
+		obj.setId(id);
+		obj = igrejaService.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 
 }
