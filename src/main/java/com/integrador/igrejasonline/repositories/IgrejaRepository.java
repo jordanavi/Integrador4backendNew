@@ -10,7 +10,8 @@ import com.integrador.igrejasonline.domain.Igreja;
 
 @Repository
 public interface IgrejaRepository extends JpaRepository<Igreja, Integer> {
-										   
-	@Transactional(readOnly=true)
+
+	@Transactional(readOnly = true)
 	Igreja findByCnpj(String cnpj);
+
 }

@@ -1,34 +1,68 @@
 package com.integrador.igrejasonline.resourcers;
 
-import java.util.ArrayList;
+import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.integrador.igrejasonline.domain.Igreja;
+import com.integrador.igrejasonline.services.IgrejaService;
 
 @RestController
-@RequestMapping(value="/igrejas")
+@RequestMapping(value = "/igrejas")
 public class IgrejaResource {
 
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Igreja> listar() {
-		
-		Igreja ent1 = new Igreja(1,"06164253000187","3432565858","Igreja Presbiteriana Central de Uberlândia",null);
-		Igreja ent2 = new Igreja(2,"18233742000122","3432565050","Igreja Batista da Lagoinha",null);
-		Igreja ent3 = new Igreja(3,"17790270000146","9990853205","Assembleia de Deus Uberlandia",null);
-		Igreja ent4 = new Igreja(4,"29744778099622","3432606050","Igreja Universal Uberlandia",null);
-		
-		List<Igreja> lista = new ArrayList<>();
-		
-		lista.add(ent1);
-		lista.add(ent2);
-		lista.add(ent3);
-		lista.add(ent4);
-		
-		return lista;
+	@Autowired
+	private IgrejaService igrejaService;
+
+	/**
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Igreja> find(@PathVariable Integer id) {
+		Igreja objIgreja = igrejaService.find(id);
+		return ResponseEntity.ok().body(objIgreja);
+	}
+
+	/**
+	 * @param objIgreja
+	 * @return
+	 */
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody Igreja objIgreja) {
+		objIgreja = igrejaService.insert(objIgreja);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objIgreja.getId())
+				.toUri();
+		return ResponseEntity.created(uri).build();
+	}
+
+	/**
+	 * @return
+	 */
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Igreja>> findAll() {
+		List<Igreja> list = igrejaService.findAll();
+		return ResponseEntity.ok().body(list);
+	}
+	
+	/**
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+		igrejaService.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 
 }
