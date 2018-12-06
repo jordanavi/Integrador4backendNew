@@ -9,5 +9,5 @@ import com.integrador.igrejasonline.domain.Evento;
 
 @Repository
 public interface EventoRepository extends JpaRepository<Evento, Integer> {
-
+	
 }
