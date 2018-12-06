@@ -1,7 +1,6 @@
 package com.integrador.igrejasonline.resourcers;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,34 +14,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.integrador.igrejasonline.domain.Entidade;
-import com.integrador.igrejasonline.services.EntidadeService;
+import com.integrador.igrejasonline.domain.Estado;
+import com.integrador.igrejasonline.services.EstadoService;
 
 @RestController
-@RequestMapping(value = "/entidades")
-public class EntidadeResource {
+@RequestMapping(value = "/estados")
+public class EstadoResource {
 
 	@Autowired
-	private EntidadeService entidadeService;
+	private EstadoService estadoService;
 
 	/**
 	 * @param id
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Entidade> find(@PathVariable Integer id) {
-		Entidade objEntidade = entidadeService.find(id);
-		return ResponseEntity.ok().body(objEntidade);
+	public ResponseEntity<Estado> find(@PathVariable Integer id) {
+		Estado objEstado = estadoService.find(id);
+		return ResponseEntity.ok().body(objEstado);
 	}
 
 	/**
-	 * @param objEntidade
+	 * @param objEstado
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody Entidade objEntidade) {
-		objEntidade = entidadeService.insert(objEntidade);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objEntidade.getId())
+	public ResponseEntity<Void> insert(@Valid @RequestBody Estado objEstado) {
+		objEstado = estadoService.insert(objEstado);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objEstado.getId())
 				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
@@ -51,8 +50,8 @@ public class EntidadeResource {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Entidade>> findAll() {
-		List<Entidade> list = entidadeService.findAll();
+	public ResponseEntity<List<Estado>> findAll() {
+		List<Estado> list = estadoService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
@@ -62,7 +61,7 @@ public class EntidadeResource {
 	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		entidadeService.delete(id);
+		estadoService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
@@ -72,9 +71,9 @@ public class EntidadeResource {
 	 * @return
 	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody Entidade obj, @PathVariable Integer id) {
+	public ResponseEntity<Void> update(@Valid @RequestBody Estado obj, @PathVariable Integer id) {
 		obj.setId(id);
-		obj = entidadeService.update(obj);
+		obj = estadoService.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 
