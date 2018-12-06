@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.integrador.igrejasonline.domain.Cidade;
 import com.integrador.igrejasonline.domain.Estado;
-
 //Camada de acesso a dados
 
 @Repository

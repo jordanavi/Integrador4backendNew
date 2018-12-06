@@ -22,7 +22,7 @@ import com.integrador.igrejasonline.services.EstadoService;
 public class EstadoResource {
 
 	@Autowired
-	private EstadoService entidadeService;
+	private EstadoService estadoService;
 
 	/**
 	 * @param id
@@ -30,7 +30,7 @@ public class EstadoResource {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Estado> find(@PathVariable Integer id) {
-		Estado objEstado = entidadeService.find(id);
+		Estado objEstado = estadoService.find(id);
 		return ResponseEntity.ok().body(objEstado);
 	}
 
@@ -40,7 +40,7 @@ public class EstadoResource {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody Estado objEstado) {
-		objEstado = entidadeService.insert(objEstado);
+		objEstado = estadoService.insert(objEstado);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objEstado.getId())
 				.toUri();
 		return ResponseEntity.created(uri).build();
@@ -51,7 +51,7 @@ public class EstadoResource {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Estado>> findAll() {
-		List<Estado> list = entidadeService.findAll();
+		List<Estado> list = estadoService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
@@ -61,7 +61,7 @@ public class EstadoResource {
 	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		entidadeService.delete(id);
+		estadoService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
@@ -73,7 +73,7 @@ public class EstadoResource {
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody Estado obj, @PathVariable Integer id) {
 		obj.setId(id);
-		obj = entidadeService.update(obj);
+		obj = estadoService.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 

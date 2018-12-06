@@ -22,7 +22,7 @@ import com.integrador.igrejasonline.services.CidadeService;
 public class CidadeResource {
 
 	@Autowired
-	private CidadeService entidadeService;
+	private CidadeService cidadeService;
 
 	/**
 	 * @param id
@@ -30,7 +30,7 @@ public class CidadeResource {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Cidade> find(@PathVariable Integer id) {
-		Cidade objCidade = entidadeService.find(id);
+		Cidade objCidade = cidadeService.find(id);
 		return ResponseEntity.ok().body(objCidade);
 	}
 
@@ -40,7 +40,7 @@ public class CidadeResource {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody Cidade objCidade) {
-		objCidade = entidadeService.insert(objCidade);
+		objCidade = cidadeService.insert(objCidade);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objCidade.getId())
 				.toUri();
 		return ResponseEntity.created(uri).build();
@@ -51,7 +51,7 @@ public class CidadeResource {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Cidade>> findAll() {
-		List<Cidade> list = entidadeService.findAll();
+		List<Cidade> list = cidadeService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
@@ -61,7 +61,7 @@ public class CidadeResource {
 	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		entidadeService.delete(id);
+		cidadeService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
@@ -73,7 +73,7 @@ public class CidadeResource {
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody Cidade obj, @PathVariable Integer id) {
 		obj.setId(id);
-		obj = entidadeService.update(obj);
+		obj = cidadeService.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 
