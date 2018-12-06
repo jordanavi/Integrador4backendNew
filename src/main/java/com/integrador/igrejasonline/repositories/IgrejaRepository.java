@@ -13,5 +13,4 @@ public interface IgrejaRepository extends JpaRepository<Igreja, Integer> {
 
 	@Transactional(readOnly = true)
 	Igreja findByCnpj(String cnpj);
-
 }
