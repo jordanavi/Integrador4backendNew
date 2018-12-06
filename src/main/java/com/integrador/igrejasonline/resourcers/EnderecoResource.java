@@ -14,36 +14,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.integrador.igrejasonline.domain.Evento;
-import com.integrador.igrejasonline.services.EventoService;
-
-
+import com.integrador.igrejasonline.domain.Endereco;
+import com.integrador.igrejasonline.services.EnderecoService;
 
 @RestController
-@RequestMapping(value = "/eventos")
-public class EventoResource {
+@RequestMapping(value = "/enderecos")
+public class EnderecoResource {
 
 	@Autowired
-	private EventoService eventoService;
+	private EnderecoService enderecoService;
 
 	/**
 	 * @param id
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Evento> find(@PathVariable Integer id) {
-		Evento objEvento = eventoService.find(id);
-		return ResponseEntity.ok().body(objEvento);
+	public ResponseEntity<Endereco> find(@PathVariable Integer id) {
+		Endereco objEndereco = enderecoService.find(id);
+		return ResponseEntity.ok().body(objEndereco);
 	}
 
 	/**
-	 * @param objEvento
+	 * @param objEndereco
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody Evento objEvento) {
-		objEvento = eventoService.insert(objEvento);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objEvento.getId())
+	public ResponseEntity<Void> insert(@Valid @RequestBody Endereco objEndereco) {
+		objEndereco = enderecoService.insert(objEndereco);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objEndereco.getId())
 				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
@@ -52,30 +50,30 @@ public class EventoResource {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Evento>> findAll() {
-		List<Evento> list = eventoService.findAll();
+	public ResponseEntity<List<Endereco>> findAll() {
+		List<Endereco> list = enderecoService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
-
+	
 	/**
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		eventoService.delete(id);
+		enderecoService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-
+	
 	/**
 	 * @param objDto
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody Evento obj, @PathVariable Integer id) {
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@Valid @RequestBody Endereco obj, @PathVariable Integer id) {
 		obj.setId(id);
-		obj = eventoService.update(obj);
+		obj = enderecoService.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 

@@ -16,5 +16,4 @@ import com.integrador.igrejasonline.domain.Igreja;
 
 		@Transactional(readOnly = true)
 		Igreja findByCnpj(String cnpj);
-
 }
