@@ -27,10 +27,6 @@ public class Cidade implements Serializable {
 	@JoinColumn(name = "estado_id")
 	private Estado estado;
 
-	@JsonIgnore
-	@OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	private Evento evento;
-
 	public Cidade() {
 	}
 

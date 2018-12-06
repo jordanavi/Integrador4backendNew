@@ -30,12 +30,8 @@ public class Evento implements Serializable {
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 	
-	@ManyToOne
-	@JoinColumn(name="cidade_id")
-	private Cidade cidade;
-	
 	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio,
-			String horaTermino, String descricao, String publico, boolean repete, Endereco endereco,Cidade cidade) {
+			String horaTermino, String descricao, String publico, boolean repete, Endereco endereco) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -47,7 +43,6 @@ public class Evento implements Serializable {
 		this.publico = publico;
 		this.repete = repete;
 		this.setEndereco(endereco);
-		this.setCidade(cidade);
 	}
 
 	public Evento() { }
@@ -72,14 +67,6 @@ public class Evento implements Serializable {
 	public void setRepete(boolean repete) {this.repete = repete;}
 	public Endereco getEndereco() {return endereco;}
 	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
-
-	public Cidade getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
 
 	@Override
 	public int hashCode() {
