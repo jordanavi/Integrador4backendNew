@@ -9,5 +9,5 @@ import com.integrador.igrejasonline.domain.Endereco;
 
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
-
+	
 }
