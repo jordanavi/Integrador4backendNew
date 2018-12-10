@@ -1,6 +1,8 @@
 package com.integrador.igrejasonline.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,48 +11,88 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Igreja implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) // geração da chave primária 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // geração da chave primária
 	private Integer id;
-	
-	@Column(unique=true)
+
+	@Column(unique = true)
 	private String cnpj;
 	private String telefone;
 	private String nome;
-	
-	//relacionamento um para um entre igreja e endereco
+
+	// relacionamento um para um entre igreja e endereco
 	@ManyToOne
-	@JoinColumn(name="endereco_id")
+	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
-	
+
+	@OneToMany(mappedBy = "igreja")
+	private List<Evento> eventos = new ArrayList<>();
+
 	public Igreja(Integer id, String cnpj, String telefone, String nome, Endereco endereco) {
 		super();
 		this.id = id;
 		this.cnpj = cnpj;
 		this.telefone = telefone;
 		this.nome = nome;
-		
-		//verificar se há a necessidade de atribuir valor a endereço
 		this.setEndereco(endereco);
 	}
-	
-	public Igreja() { }
-	
-	public Integer getId() {return id;}
-	public void setId(Integer id) {this.id = id;}
-	public String getCnpj() {return cnpj;}
-	public void setCnpj(String cnpj) {this.cnpj = cnpj;}
-	public String getTelefone() {return telefone;}
-	public void setTelefone(String telefone) {this.telefone = telefone;}
-	public String getNome() {return nome;}
-	public void setNome(String nome) {this.nome = nome;}	
-	public Endereco getEndereco() {return endereco;}
-	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+
+	public Igreja() {
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public List<Evento> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
 
 	@Override
 	public int hashCode() {

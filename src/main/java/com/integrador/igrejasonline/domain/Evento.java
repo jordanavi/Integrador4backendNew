@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,8 +32,13 @@ public class Evento implements Serializable {
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
 
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "igreja_id")
+	private Igreja igreja;
+
 	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio,
-			String horaTermino, String descricao, String publico, boolean repete, Endereco endereco) {
+			String horaTermino, String descricao, String publico, boolean repete, Endereco endereco, Igreja igreja) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -43,6 +50,15 @@ public class Evento implements Serializable {
 		this.publico = publico;
 		this.repete = repete;
 		this.setEndereco(endereco);
+		this.setIgreja(igreja);
+	}
+
+	public Igreja getIgreja() {
+		return igreja;
+	}
+
+	public void setIgreja(Igreja igreja) {
+		this.igreja = igreja;
 	}
 
 	public Evento() {
