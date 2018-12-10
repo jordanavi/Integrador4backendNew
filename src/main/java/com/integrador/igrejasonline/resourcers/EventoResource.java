@@ -79,4 +79,11 @@ public class EventoResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	
+	@RequestMapping(value = "cidade/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Evento>> buscaEventosPorCidade(@PathVariable Integer id) {
+		List<Evento> list = eventoService.buscaEventoPorCidade(id);
+		return ResponseEntity.ok().body(list);
+	}
+	
 }

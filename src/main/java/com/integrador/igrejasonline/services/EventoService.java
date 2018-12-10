@@ -80,5 +80,19 @@ public class EventoService {
 		newObj.setPublico(obj.getPublico());
 		newObj.setRepete(obj.isRepete());
 	}
+	
+	/**
+	 * @param id
+	 * @return
+	 */
+	public List<Evento> buscaEventoPorCidade(Integer id) {
+		List<Evento> objEvento = repo.pesquisaEventosPorCidade(id);
+		if (objEvento == null || objEvento.isEmpty()) {
+			throw new ObjectNotFoundException(
+					"Recurso não encontrado! Id: " + id + ", Tipo: " + Evento.class.getName());
+		}else {
+			return objEvento;
+		}
+	}
 
 }
