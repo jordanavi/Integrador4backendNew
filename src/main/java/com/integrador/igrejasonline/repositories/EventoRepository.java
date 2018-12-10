@@ -19,8 +19,4 @@ public interface EventoRepository extends JpaRepository<Evento, Integer> {
 	@Query("SELECT DISTINCT obj FROM Evento obj INNER JOIN obj.endereco eve WHERE eve.cidade.id = :id")
 	List<Evento> pesquisaEventosPorCidade(@Param("id") Integer id);
 	
-	@Transactional(readOnly = true)
-	@Query("SELECT DISTINCT obj FROM Evento obj INNER JOIN obj.endereco eve WHERE eve.cidade.id = :id")
-	List<Evento> pesquisaEventosPorIgreja(@Param("id") Integer id);
-	
 }

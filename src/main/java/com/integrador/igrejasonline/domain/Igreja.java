@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Igreja implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +32,7 @@ public class Igreja implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
-
+	
 	@OneToMany(mappedBy = "igreja")
 	private List<Evento> eventos = new ArrayList<>();
 
