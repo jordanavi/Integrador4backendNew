@@ -36,38 +36,38 @@ public class DBService {
 	
 	public void instantiateTestDatabase() throws ParseException {
 
-		Estado estado1 = new Estado(null, "Acre");
-		Estado estado2 = new Estado(null, "Alagoas");
-		Estado estado3 = new Estado(null, "Amapá");
-		Estado estado4 = new Estado(null, "Amazonas");
-		Estado estado5 = new Estado(null, "Bahia");
-		Estado estado6 = new Estado(null, "Ceará");
-		Estado estado7 = new Estado(null, "Distrito Federal");
-		Estado estado8 = new Estado(null, "Espírito Santo");
-		Estado estado9 = new Estado(null, "Goiás");
-		Estado estado10 = new Estado(null, "Maranhão");
-		Estado estado11 = new Estado(null, "Mato Grosso");
-		Estado estado12 = new Estado(null, "Mato Grosso do Sul");
-		Estado estado13 = new Estado(null, "Minas Gerais");
-		Estado estado14 = new Estado(null, "Pará");
-		Estado estado15 = new Estado(null, "Paraíba");
-		Estado estado16 = new Estado(null, "Paraná");
-		Estado estado17 = new Estado(null, "Pernambuco");
-		Estado estado18 = new Estado(null, "Piauí");
-		Estado estado19 = new Estado(null, "Rio de Janeiro");
-		Estado estado20 = new Estado(null, "Rio Grande do Norte");
-		Estado estado21 = new Estado(null, "Rio Grande do Sul");
-		Estado estado22 = new Estado(null, "Rondônia");
-		Estado estado23 = new Estado(null, "Roraima");
-		Estado estado24 = new Estado(null, "Santa Catarina");
-		Estado estado25 = new Estado(null, "São Paulo");
-		Estado estado26 = new Estado(null, "Sergipe");
-		Estado estado27 = new Estado(null, "Tocantins");
+		Estado estado1 = new Estado(null, "Acre","AC");
+		Estado estado2 = new Estado(null, "Alagoas","AL");
+		Estado estado3 = new Estado(null, "Amapá","AP");
+		Estado estado4 = new Estado(null, "Amazonas","AM");
+		Estado estado5 = new Estado(null, "Bahia","BA");
+		Estado estado6 = new Estado(null, "Ceará","CE");
+		Estado estado7 = new Estado(null, "Distrito Federal","DF");
+		Estado estado8 = new Estado(null, "Espírito Santo","ES");
+		Estado estado9 = new Estado(null, "Goiás","GO");
+		Estado estado10 = new Estado(null, "Maranhão","MA");
+		Estado estado11 = new Estado(null, "Mato Grosso","MT");
+		Estado estado12 = new Estado(null, "Mato Grosso do Sul","MS");
+		Estado estado13 = new Estado(null, "Minas Gerais","MG");
+		Estado estado14 = new Estado(null, "Pará","PA");
+		Estado estado15 = new Estado(null, "Paraíba","PB");
+		Estado estado16 = new Estado(null, "Paraná","PR");
+		Estado estado17 = new Estado(null, "Pernambuco","PE");
+		Estado estado18 = new Estado(null, "Piauí","PI");
+		Estado estado19 = new Estado(null, "Rio de Janeiro","RJ");
+		Estado estado20 = new Estado(null, "Rio Grande do Norte","RN");
+		Estado estado21 = new Estado(null, "Rio Grande do Sul","RS");
+		Estado estado22 = new Estado(null, "Rondônia","RO");
+		Estado estado23 = new Estado(null, "Roraima","RR");
+		Estado estado24 = new Estado(null, "Santa Catarina","SC");
+		Estado estado25 = new Estado(null, "São Paulo","SP");
+		Estado estado26 = new Estado(null, "Sergipe","SE");
+		Estado estado27 = new Estado(null, "Tocantins","TO");
 
 
-		Cidade cidade1 = new Cidade(null, "Uberlândia", estado13);
-		Cidade cidade2 = new Cidade(null, "São Paulo", estado25);
-		Cidade cidade3 = new Cidade(null, "Campinas", estado25);
+		Cidade cidade1 = new Cidade(null, "Uberlândia", estado13);//2389
+		Cidade cidade2 = new Cidade(null, "São Paulo", estado25);//5270
+		Cidade cidade3 = new Cidade(null, "Campinas", estado25);//4814
 
 		estado1.getCidades().addAll(Arrays.asList(cidade1));
 		estado2.getCidades().addAll(Arrays.asList(cidade2, cidade3));

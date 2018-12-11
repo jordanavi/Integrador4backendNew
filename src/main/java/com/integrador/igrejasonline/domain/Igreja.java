@@ -45,56 +45,20 @@ public class Igreja implements Serializable {
 		this.setEndereco(endereco);
 	}
 
-	public Igreja() {
-	}
+	public Igreja() { }
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getCnpj() {
-		return cnpj;
-	}
-
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public List<Evento> getEventos() {
-		return eventos;
-	}
-
-	public void setEventos(List<Evento> eventos) {
-		this.eventos = eventos;
-	}
+	public Integer getId() {return id;}
+	public void setId(Integer id) {this.id = id;}
+	public String getCnpj() {return cnpj;}
+	public void setCnpj(String cnpj) {this.cnpj = cnpj;}
+	public String getTelefone() {return telefone;}
+	public void setTelefone(String telefone) {this.telefone = telefone;}
+	public String getNome() {return nome;}
+	public void setNome(String nome) {this.nome = nome;}
+	public Endereco getEndereco() {return endereco;}
+	public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+	public List<Evento> getEventos() {return eventos;}
+	public void setEventos(List<Evento> eventos) {this.eventos = eventos;}
 
 	@Override
 	public int hashCode() {
